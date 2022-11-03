@@ -1,0 +1,40 @@
+import random
+
+import words
+
+def guess(word,g_word):
+    f_str =''
+    final =['*'for i in range(5)]
+    if len(word) == len(g_word) ==5:
+        for i in range(len(g_word)-1):
+            if g_word[i] in word:
+                final[i] = g_word[i]
+    else:
+        final.append('Invalid!')
+    for i in final:
+        f_str+=i
+    return {'Word':f_str}
+
+def wordle(word):
+    num_guesses = 5
+    isWinning = False
+    windict = {True:'You won!',False:'You lost, get better at the game'}
+    while num_guesses>0:
+        _w = input('Enter guess: ')
+        if word.lower() == _w.lower():
+            isWinning = True
+            break
+        else:
+            print(guess(word,_w))
+            num_guesses -=1
+    print(windict[isWinning])
+    if not isWinning:
+        print(f'Word was: {word}')
+    return windict[isWinning]
+
+w = random.choice(words.x.split(' '))
+x = 'a'
+print('This is wordle, guess a 5 letter word to begin. You have 5 chances to guess the correct word before you lose. Correct letters may appear in the wrong position . Try not to repeat letters since its a bit of a problem but good luck!')
+while x!= 'n':
+    wordle(w)
+    x = input('Continue?(n to stop): ')
