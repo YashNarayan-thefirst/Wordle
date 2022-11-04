@@ -15,6 +15,7 @@ def guess(word,g_word):
         f_str+=i
     return {'Word':f_str}
 
+
 def wordle(word):
     num_guesses = 5
     isWinning = False
@@ -32,9 +33,13 @@ def wordle(word):
         print(f'Word was: {word}')
     return windict[isWinning]
 
-w = random.choice(words.x.split(' '))
-x = 'a'
 print('This is wordle, guess a 5 letter word to begin. You have 5 chances to guess the correct word before you lose. Correct letters may appear in the wrong position . Try not to repeat letters since its a bit of a problem but good luck!')
-while x!= 'n':
-    wordle(w)
-    x = input('Continue?(n to stop): ')
+def main(x ='1'):
+    while x!= 'n':
+        w = random.choice(words.x.split(' '))
+        print(w)
+        wordle(w)
+        x = input('Continue?(n to stop): ')
+
+if __name__ == 'main':
+    main()
