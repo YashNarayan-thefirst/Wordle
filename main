@@ -34,12 +34,9 @@ def wordle(word):
     return windict[isWinning]
 
 print('This is wordle, guess a 5 letter word to begin. You have 5 chances to guess the correct word before you lose. Correct letters may appear in the wrong position . Try not to repeat letters since its a bit of a problem but good luck!')
-def main(x ='1'):
-    while x!= 'n':
-        w = random.choice(words.x.split(' '))
-        print(w)
-        wordle(w)
-        x = input('Continue?(n to stop): ')
-
-if __name__ == 'main':
-    main()
+x = '1'
+while x!= 'n':
+    w = random.choice(words.x.split(' '))
+    print(w)
+    wordle(w)
+    x = input('Continue?(n to stop): ')
